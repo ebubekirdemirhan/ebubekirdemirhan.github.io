@@ -15,7 +15,7 @@
   <rect x="80" y="265" width="64" height="64" rx="14" fill="url(#accent)"/>
   <text x="112" y="305" dominant-baseline="middle" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="36" fill="#fff">E</text>
   <text x="164" y="310" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="48" fill="#f3f4f6">Ebubekir Demirhan</text>
-  <text x="80" y="375" font-family="Inter, system-ui, sans-serif" font-weight="500" font-size="24" fill="#a855f7">Elektrik &amp; Elektronik Mühendisi</text>
+  <text x="80" y="375" font-family="Inter, system-ui, sans-serif" font-weight="500" font-size="24" fill="#a855f7">Elektrik &amp; Elektronik Mï¿½hendisi</text>
   <text x="80" y="415" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="20" fill="#6b7280">Yaz1l1m Geli_tirici " Veri Analisti " Trader</text>
   <line x1="80" y1="450" x2="500" y2="450" stroke="url(#accent)" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
   <text x="80" y="490" font-family="JetBrains Mono, monospace" font-weight="400" font-size="16" fill="#6b7280">C# " Python " SQL " PLC " Pine Script</text>
