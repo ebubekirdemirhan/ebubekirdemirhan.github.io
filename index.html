@@ -1,46 +1,955 @@
 <!doctype html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ebubekir Demirhan | Elektrik & Elektronik Mühendisi</title>
-    <meta name="description" content="Ebubekir Demirhan - Elektrik & Elektronik Mühendisi, Yazılım Geliştirici ve Veri Analisti. C#, Python, SQL, PLC ve TradingView Pine Script konularında uzman." />
-    <meta name="keywords" content="Ebubekir Demirhan, Elektrik Mühendisi, Yazılım Geliştirici, Veri Analisti, Python, C#, SQL, PLC, TradingView, Pine Script, Portfolio" />
-    <meta name="author" content="Ebubekir Demirhan" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://ebubekirdemirhan.github.io/" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ebubekir Demirhan | ETO Adayı · Gemi Elektro-Teknik Zabiti</title>
+  <meta name="description" content="Ebubekir Demirhan - Elektrik & Elektronik Mühendisi, Gemi ETO Zabiti Adayı. PLC, otomasyon ve yazılım birikimini denizde uygulamak üzere Ekol Denizcilik'te ETO eğitimi alıyor." />
+  <meta name="keywords" content="Ebubekir Demirhan, ETO, Gemi Elektro-Teknik Zabiti, Elektrik Mühendisi, PLC, Otomasyon, Ekol Denizcilik, TradingView, Pine Script" />
+  <meta name="author" content="Ebubekir Demirhan" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ebubekirdemirhan.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ebubekirdemirhan.github.io/" />
+  <meta property="og:title" content="Ebubekir Demirhan | ETO Adayı · Gemi Elektro-Teknik Zabiti" />
+  <meta property="og:description" content="Elektrik & Elektronik Mühendisi — PLC/Otomasyon sahası — Gemi ETO Zabiti adayı." />
+  <meta name="theme-color" content="#0a0816" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0816; --bg2: #0f0d1a; --bg3: #141226;
+      --text: #e2e8f0; --muted: #94a3b8; --accent: #a78bfa;
+      --accent2: #38bdf8; --accent3: #4ade80;
+      --border: rgba(148,163,184,.15); --glow: rgba(167,139,250,.18);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.65; overflow-x: hidden;
+    }
+    a { color: var(--accent); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--accent2); }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ebubekirdemirhan.github.io/" />
-    <meta property="og:title" content="Ebubekir Demirhan | Elektrik & Elektronik Mühendisi" />
-    <meta property="og:description" content="Yazılım Geliştirici & Veri Analisti. C#, Python, SQL ve PLC ile yenilikçi çözümler geliştiriyorum." />
-    <meta property="og:image" content="https://ebubekirdemirhan.github.io/og-image.svg" />
-    <meta property="og:locale" content="tr_TR" />
-    <meta property="og:locale:alternate" content="en_US" />
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,8,22,.85); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .75rem 2rem; height: 60px;
+    }
+    .nav-logo { font-weight: 700; font-size: 1rem; color: var(--text); letter-spacing: .04em; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.75rem; font-size: .85rem; }
+    .nav-links a { color: var(--muted); font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      padding: .4rem 1rem; border-radius: 999px;
+      background: rgba(167,139,250,.15); border: 1px solid rgba(167,139,250,.4);
+      color: var(--accent); font-size: .82rem; font-weight: 600;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: rgba(167,139,250,.28); color: var(--accent); }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      nav { padding: .75rem 1.25rem; }
+    }
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://ebubekirdemirhan.github.io/" />
-    <meta name="twitter:title" content="Ebubekir Demirhan | Elektrik & Elektronik Mühendisi" />
-    <meta name="twitter:description" content="Yazılım Geliştirici & Veri Analisti. C#, Python, SQL ve PLC ile yenilikçi çözümler geliştiriyorum." />
-    <meta name="twitter:image" content="https://ebubekirdemirhan.github.io/og-image.svg" />
+    /* ── SECTIONS ── */
+    section { padding: 5rem 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-tag {
+      display: inline-block; font-size: .7rem; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--accent); font-weight: 600;
+      margin-bottom: .6rem; font-family: 'JetBrains Mono', monospace;
+    }
+    .section-tag::before { content: '// '; opacity: .5; }
+    h2.section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800;
+      margin-bottom: 1rem; line-height: 1.2;
+    }
+    h2.section-title span { color: var(--accent); }
+    .section-sub { color: var(--muted); font-size: .95rem; max-width: 560px; }
 
-    <!-- Theme -->
-    <meta name="theme-color" content="#0a0816" />
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding-top: 60px;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(167,139,250,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(56,189,248,.08) 0%, transparent 60%),
+        var(--bg);
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center;
+    }
+    @media (max-width: 800px) { .hero-inner { grid-template-columns: 1fr; } }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.3);
+      border-radius: 999px; padding: .3rem .9rem; font-size: .78rem;
+      color: var(--accent3); font-weight: 600; margin-bottom: 1.2rem;
+    }
+    .hero-tag::before { content: '⚓'; }
+    h1 {
+      font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800;
+      line-height: 1.15; margin-bottom: .75rem;
+    }
+    h1 .role { color: var(--accent); display: block; font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 600; margin-top: .3rem; }
+    .hero-desc { color: var(--muted); font-size: .98rem; max-width: 480px; margin-bottom: 1.75rem; line-height: 1.7; }
+    .hero-btns { display: flex; gap: .85rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .btn-primary {
+      padding: .65rem 1.5rem; border-radius: 999px;
+      background: linear-gradient(135deg, #7c3aed, #a78bfa); color: #fff;
+      font-weight: 700; font-size: .9rem; border: none; cursor: pointer;
+      transition: opacity .2s, transform .2s; display: inline-block;
+    }
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); color: #fff; }
+    .btn-secondary {
+      padding: .65rem 1.5rem; border-radius: 999px;
+      background: rgba(148,163,184,.08); border: 1px solid var(--border);
+      color: var(--text); font-weight: 600; font-size: .9rem;
+      transition: background .2s, transform .2s; display: inline-block;
+    }
+    .btn-secondary:hover { background: rgba(148,163,184,.15); transform: translateY(-1px); color: var(--text); }
+    .hero-stats { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+    .hero-stat { }
+    .hero-stat-num { font-size: 1.4rem; font-weight: 800; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+    .hero-stat-label { font-size: .73rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    /* Code window */
+    .code-window {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(167,139,250,.08);
+    }
+    .code-window-bar {
+      background: rgba(255,255,255,.04); padding: .6rem 1rem;
+      display: flex; align-items: center; gap: .5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot.red { background: #ff5f57; }
+    .dot.yellow { background: #febc2e; }
+    .dot.green { background: #28c840; }
+    .code-filename { font-family: 'JetBrains Mono', monospace; font-size: .75rem; color: var(--muted); margin-left: .5rem; }
+    .code-body { padding: 1.25rem 1.4rem; font-family: 'JetBrains Mono', monospace; font-size: .8rem; line-height: 1.75; }
+    .code-line { display: block; }
+    .c-keyword { color: #c792ea; }
+    .c-var { color: #82aaff; }
+    .c-string { color: #c3e88d; }
+    .c-comment { color: #546e7a; font-style: italic; }
+    .c-bracket { color: #89ddff; }
+    .c-key { color: #f07178; }
+    .c-punct { color: var(--muted); }
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/assets/index-mGMPeZ1v.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CKl_gtZp.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+    /* ── ABOUT ── */
+    #about { background: var(--bg2); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 2.5rem; }
+    @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-story h3 { font-size: 1.05rem; color: var(--accent); margin: 1.25rem 0 .4rem; font-weight: 700; }
+    .about-story h3:first-child { margin-top: 0; }
+    .about-story p { color: var(--muted); font-size: .92rem; line-height: 1.72; }
+    .about-code-col { position: sticky; top: 80px; }
+    .passions-list { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: .5rem; }
+    .passions-list li {
+      display: flex; align-items: center; gap: .6rem;
+      background: rgba(167,139,250,.06); border: 1px solid rgba(167,139,250,.15);
+      border-radius: .6rem; padding: .5rem .85rem;
+      font-size: .87rem; color: var(--text);
+    }
+    .passions-list li::before { content: '▹'; color: var(--accent); font-size: .9rem; }
+
+    /* ── EXPERIENCE ── */
+    #experience { }
+    .timeline { position: relative; margin-top: 2.5rem; padding-left: 1.5rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(180deg, var(--accent), transparent);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 2.2rem;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem 1.4rem;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .timeline-item:hover { border-color: rgba(167,139,250,.35); box-shadow: 0 8px 30px rgba(0,0,0,.3); }
+    .timeline-item.featured { border-color: rgba(74,222,128,.3); background: rgba(74,222,128,.03); }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -1.75rem; top: 1.4rem;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+      box-shadow: 0 0 0 3px rgba(167,139,250,.25);
+    }
+    .timeline-item.featured::before { background: var(--accent3); box-shadow: 0 0 0 3px rgba(74,222,128,.25); }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: .4rem; margin-bottom: .5rem; }
+    .exp-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .exp-company { font-size: .85rem; color: var(--accent); font-weight: 600; }
+    .exp-date { font-size: .75rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
+    .exp-type { font-size: .7rem; padding: .18rem .55rem; border-radius: 999px; font-weight: 600; }
+    .exp-type.full { background: rgba(56,189,248,.12); color: #38bdf8; border: 1px solid rgba(56,189,248,.3); }
+    .exp-type.intern { background: rgba(250,204,21,.1); color: #facc15; border: 1px solid rgba(250,204,21,.25); }
+    .exp-type.training { background: rgba(74,222,128,.12); color: #4ade80; border: 1px solid rgba(74,222,128,.3); }
+    .exp-desc { font-size: .88rem; color: var(--muted); margin: .5rem 0; line-height: 1.65; }
+    .exp-highlight { font-size: .84rem; color: var(--accent3); font-style: italic; margin: .4rem 0; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
+    .tech-tag {
+      font-size: .72rem; padding: .2rem .55rem; border-radius: .4rem;
+      background: rgba(148,163,184,.08); border: 1px solid rgba(148,163,184,.18);
+      color: var(--muted); font-family: 'JetBrains Mono', monospace;
+    }
+    .exp-bullets { margin: .5rem 0 0 1rem; }
+    .exp-bullets li { font-size: .87rem; color: var(--muted); margin-bottom: .25rem; line-height: 1.55; }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--bg2); }
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+    .edu-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.4rem; transition: border-color .2s, transform .2s;
+    }
+    .edu-card:hover { border-color: rgba(167,139,250,.35); transform: translateY(-2px); }
+    .edu-card.primary { border-color: rgba(74,222,128,.35); background: rgba(74,222,128,.03); }
+    .edu-card.secondary { border-color: rgba(167,139,250,.25); }
+    .edu-badge {
+      display: inline-block; font-size: .7rem; padding: .2rem .65rem;
+      border-radius: 999px; font-weight: 700; margin-bottom: .75rem;
+    }
+    .badge-active { background: rgba(74,222,128,.15); color: #4ade80; border: 1px solid rgba(74,222,128,.35); }
+    .badge-done { background: rgba(56,189,248,.12); color: #38bdf8; border: 1px solid rgba(56,189,248,.3); }
+    .badge-cert { background: rgba(250,204,21,.1); color: #facc15; border: 1px solid rgba(250,204,21,.25); }
+    .edu-title { font-size: 1rem; font-weight: 700; margin-bottom: .25rem; color: var(--text); }
+    .edu-org { font-size: .85rem; color: var(--accent); font-weight: 600; margin-bottom: .2rem; }
+    .edu-date { font-size: .75rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; margin-bottom: .6rem; }
+    .edu-desc { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+    .cert-list { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
+    .cert-list li {
+      display: flex; align-items: center; gap: .7rem;
+      padding: .5rem .8rem; border-radius: .6rem;
+      background: rgba(148,163,184,.05); border: 1px solid rgba(148,163,184,.1);
+      font-size: .84rem; color: var(--muted);
+    }
+    .cert-list li::before { content: '🏆'; font-size: .8rem; flex-shrink: 0; }
+
+    /* ── SKILLS ── */
+    #skills { }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.1rem; margin-top: 2.5rem; }
+    .skill-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.1rem 1.2rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .skill-card:hover { border-color: rgba(167,139,250,.3); transform: translateY(-2px); }
+    .skill-card.highlight { border-color: rgba(74,222,128,.3); background: rgba(74,222,128,.03); }
+    .skill-card-title { font-size: .82rem; font-weight: 700; color: var(--accent); margin-bottom: .75rem; text-transform: uppercase; letter-spacing: .07em; display: flex; align-items: center; gap: .4rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .skill-tag {
+      font-size: .75rem; padding: .22rem .55rem; border-radius: .4rem;
+      background: rgba(148,163,184,.07); border: 1px solid rgba(148,163,184,.15);
+      color: var(--text); transition: background .15s;
+    }
+    .skill-tag:hover { background: rgba(167,139,250,.12); }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--bg2); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+    .project-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.4rem; display: flex; flex-direction: column;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .project-card:hover { border-color: rgba(167,139,250,.35); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+    .project-card.featured { border-color: rgba(56,189,248,.35); background: rgba(56,189,248,.03); }
+    .project-icon { font-size: 1.6rem; margin-bottom: .75rem; }
+    .project-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+    .project-desc { font-size: .87rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: .9rem; }
+    .project-links { display: flex; gap: .6rem; margin-top: auto; }
+    .project-link {
+      font-size: .8rem; padding: .35rem .8rem; border-radius: .5rem;
+      border: 1px solid rgba(148,163,184,.2); color: var(--muted);
+      transition: color .15s, border-color .15s;
+    }
+    .project-link:hover { color: var(--accent); border-color: rgba(167,139,250,.4); }
+    .project-link.primary { background: rgba(167,139,250,.12); border-color: rgba(167,139,250,.35); color: var(--accent); }
+
+    /* ── TRADING ── */
+    #trading { }
+    .trading-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .trading-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.1rem; margin-top: 2rem; }
+    .indicator-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .indicator-card:hover { border-color: rgba(167,139,250,.3); transform: translateY(-2px); }
+    .indicator-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .7rem; padding: .2rem .65rem; border-radius: 999px;
+      background: rgba(250,204,21,.1); color: #facc15;
+      border: 1px solid rgba(250,204,21,.25); font-weight: 700; margin-bottom: .7rem;
+    }
+    .indicator-name { font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+    .indicator-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; margin-bottom: .7rem; }
+    .indicator-features { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .indicator-feature { font-size: .7rem; padding: .18rem .5rem; border-radius: .35rem; background: rgba(148,163,184,.07); color: var(--muted); border: 1px solid rgba(148,163,184,.12); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg2); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; align-items: start; }
+    @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-desc { color: var(--muted); font-size: .93rem; line-height: 1.72; }
+    .contact-open {
+      margin-top: 1.5rem; padding: 1rem 1.25rem; border-radius: 12px;
+      background: rgba(74,222,128,.07); border: 1px solid rgba(74,222,128,.25);
+    }
+    .contact-open p { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+    .contact-open strong { color: var(--accent3); }
+    .contact-links { display: flex; flex-direction: column; gap: .75rem; }
+    .contact-link-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .9rem 1.1rem; border-radius: 12px;
+      background: var(--bg3); border: 1px solid var(--border);
+      transition: border-color .2s, transform .15s;
+    }
+    .contact-link-item:hover { border-color: rgba(167,139,250,.35); transform: translateX(4px); }
+    .contact-link-icon { font-size: 1.1rem; width: 36px; height: 36px; border-radius: .5rem; background: rgba(167,139,250,.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-link-info { flex: 1; }
+    .contact-link-name { font-size: .88rem; font-weight: 600; color: var(--text); }
+    .contact-link-val { font-size: .78rem; color: var(--muted); }
+    .contact-link-arrow { color: var(--muted); font-size: .9rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border); padding: 1.5rem 0;
+      text-align: center; font-size: .8rem; color: var(--muted);
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── BACK TO TOP ── */
+    #back-top {
+      position: fixed; right: 1.5rem; bottom: 1.5rem;
+      width: 2.4rem; height: 2.4rem; border-radius: 50%;
+      background: rgba(167,139,250,.15); border: 1px solid rgba(167,139,250,.4);
+      color: var(--accent); font-size: 1rem; cursor: pointer; z-index: 999;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity .3s, transform .2s;
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">ebu<span>.</span>dev</div>
+  <div class="nav-links">
+    <a href="#about">Hakkımda</a>
+    <a href="#experience">Deneyim</a>
+    <a href="#education">Eğitim</a>
+    <a href="#skills">Yetenekler</a>
+    <a href="#projects">Projeler</a>
+    <a href="#contact">İletişim</a>
+  </div>
+  <a href="mailto:ebubekirdemirhaniletisim@gmail.com" class="nav-cta">İletişim</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left reveal">
+        <div class="hero-tag">Ekol Denizcilik — ETO Eğitimi</div>
+        <h1>
+          Merhaba, Ben Ebubekir
+          <span class="role">ETO Adayı · Gemi Elektro-Teknik Zabiti</span>
+        </h1>
+        <p class="hero-desc">
+          Marmara Üniversitesi Elektrik &amp; Elektronik Mühendisi. Endüstriyel PLC, otomasyon ve yazılım birikimimi gemilerde uygulamak üzere Ekol Denizcilik'te ETO eğitimi alıyorum.
+        </p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-primary">İletişime Geç</a>
+          <a href="#projects" class="btn-secondary">Projelerim</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">ETO</div>
+            <div class="hero-stat-label">Eğitim Devam Ediyor</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">32</div>
+            <div class="hero-stat-label">Bölüm ETO Rehberi</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">5+</div>
+            <div class="hero-stat-label">Yıl Trader</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">10+</div>
+            <div class="hero-stat-label">Teknoloji</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right reveal">
+        <div class="code-window">
+          <div class="code-window-bar">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+            <span class="code-filename">eto-officer.js</span>
+          </div>
+          <div class="code-body">
+            <span class="code-line"><span class="c-keyword">const</span> <span class="c-var">ebubekir</span> <span class="c-punct">= {</span></span>
+            <span class="code-line">  <span class="c-key">ad</span><span class="c-punct">:</span> <span class="c-string">'Ebubekir Demirhan'</span><span class="c-punct">,</span></span>
+            <span class="code-line">  <span class="c-key">rol</span><span class="c-punct">:</span> <span class="c-string">'ETO Adayı | Gemi Elektro-Teknik Zabiti'</span><span class="c-punct">,</span></span>
+            <span class="code-line">  <span class="c-key">egitim</span><span class="c-punct">:</span> <span class="c-string">'Ekol Denizcilik — ETO Sertifika Programı'</span><span class="c-punct">,</span></span>
+            <span class="code-line">  <span class="c-key">altyapi</span><span class="c-punct">: [</span></span>
+            <span class="code-line">    <span class="c-string">'Elektrik & Elektronik Müh.'</span><span class="c-punct">,</span></span>
+            <span class="code-line">    <span class="c-string">'PLC &amp; Endüstriyel Otomasyon'</span><span class="c-punct">,</span></span>
+            <span class="code-line">    <span class="c-string">'Yazılım Geliştirme'</span><span class="c-punct">,</span></span>
+            <span class="code-line">  <span class="c-punct">],</span></span>
+            <span class="code-line">  <span class="c-key">hedef</span><span class="c-punct">:</span> <span class="c-string">'Gemilerde elektrik ve otomasyon sistemlerini yönetmek'</span><span class="c-punct">,</span></span>
+            <span class="code-line">  <span class="c-key">freelance</span><span class="c-punct">:</span> <span class="c-string">'Yazılım & TradingView indikatör geliştirme'</span><span class="c-punct">,</span></span>
+            <span class="code-line"><span class="c-punct">};</span></span>
+            <span class="code-line"></span>
+            <span class="code-line"><span class="c-comment">// Hedef: Gemi ETO Zabiti olarak görev almak</span></span>
+            <span class="code-line"><span class="c-keyword">export default</span> <span class="c-var">ebubekir</span><span class="c-punct">;</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">about.js</span>
+      <h2 class="section-title">Benim <span>Hikayem</span></h2>
+      <p class="section-sub">Mühendislik birikimini denize taşıyan bir kariyer yolculuğu.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-story reveal">
+        <h3>⚡ Mühendislik Temeli</h3>
+        <p>1998 yılında İstanbul'da doğdum. Marmara Üniversitesi Elektrik &amp; Elektronik Mühendisliği bölümünden mezun oldum. Üniversite yıllarından itibaren PLC programlama, endüstriyel otomasyon ve elektrik panosu tasarımı alanlarında saha deneyimi kazandım. Yazılım tarafında C#, Python ve SQL ile profesyonel projeler geliştirdim; 5+ yıldır Pine Script ile algoritmik trading indikatörleri yazıyorum.</p>
+
+        <h3>⚓ Kariyer Dönüşümü</h3>
+        <p>Endüstriyel PLC ve otomasyon deneyimimin gemi kontrol sistemleriyle doğrudan örtüştüğünü fark ettim. Gemi elektrik dağıtım sistemleri, motor kontrol devreleri ve otomasyon altyapısı — tüm bunlar aslında sahada öğrendiğim şeyler. Bu farkındalıkla Ekol Denizcilik Eğitim Merkezi'nde ETO sertifika programına başladım. Stajımı tamamlayıp gerçek bir ETO zabiti olarak denize açılmak istiyorum.</p>
+
+        <h3>🚢 Vizyonum</h3>
+        <p>Modern gemilerde elektrik dağıtım, GMDSS haberleşme, yüksek gerilim sistemleri ve PLC tabanlı otomasyon altyapısını yönetmek istiyorum. Mühendislik ve yazılım altyapım, standart bir ETO adayının ötesinde teknik problem çözme yetisi sunuyor. Deniz kariyerimle paralel olarak freelance yazılım ve indikatör geliştirme çalışmalarıma da devam edeceğim.</p>
+      </div>
+      <div class="about-code-col reveal">
+        <div class="code-window">
+          <div class="code-window-bar">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+            <span class="code-filename">passion.js</span>
+          </div>
+          <div class="code-body">
+            <span class="code-line"><span class="c-keyword">const</span> <span class="c-var">passions</span> <span class="c-punct">= [</span></span>
+            <span class="code-line">  <span class="c-string">'Gemi elektrik &amp; otomasyon sistemleri'</span><span class="c-punct">,</span></span>
+            <span class="code-line">  <span class="c-string">'PLC ve endüstriyel kontrol'</span><span class="c-punct">,</span></span>
+            <span class="code-line">  <span class="c-string">'Gemi arıza bulma &amp; bakım tutum'</span><span class="c-punct">,</span></span>
+            <span class="code-line">  <span class="c-string">'Freelance yazılım &amp; indikatör geliştirme'</span><span class="c-punct">,</span></span>
+            <span class="code-line"><span class="c-punct">];</span></span>
+          </div>
+        </div>
+        <ul class="passions-list" style="margin-top:1.5rem">
+          <li>Gemi elektrik &amp; otomasyon sistemleri</li>
+          <li>PLC ve endüstriyel kontrol</li>
+          <li>GMDSS haberleşme sistemleri</li>
+          <li>Yüksek gerilim sistemleri</li>
+          <li>Freelance yazılım &amp; indikatör geliştirme</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">experience.js</span>
+      <h2 class="section-title">İş <span>Deneyimim</span></h2>
+      <p class="section-sub">Saha, yazılım ve otomasyon alanlarında edindiğim deneyimler.</p>
+    </div>
+    <div class="timeline reveal">
+
+      <!-- ETO Eğitimi -->
+      <div class="timeline-item featured">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">ETO Sertifika Programı — Gemi Elektro-Teknik Zabiti</div>
+            <div class="exp-company">Ekol Denizcilik Eğitim Merkezi</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <span class="exp-type training">Eğitim</span>
+            <span class="exp-date">2024 — Devam Ediyor</span>
+          </div>
+        </div>
+        <p class="exp-desc">Gemi elektrik dağıtım sistemleri, motor kontrol devreleri, GMDSS haberleşme, yüksek gerilim sistemleri ve gemi otomasyon altyapısı üzerine kapsamlı sertifika eğitimi. Staj sürecini tamamlayarak ETO Zabiti olarak denize çıkma hedefiyle ilerliyorum.</p>
+        <p class="exp-highlight">★ Endüstriyel PLC ve otomasyon deneyimim bu eğitimde doğrudan avantaj sağlıyor.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Gemi Elektrik Sistemleri</span>
+          <span class="tech-tag">GMDSS</span>
+          <span class="tech-tag">Yüksek Gerilim</span>
+          <span class="tech-tag">Motor Kontrol</span>
+          <span class="tech-tag">STCW</span>
+          <span class="tech-tag">Gemi Otomasyonu</span>
+        </div>
+      </div>
+
+      <!-- Veri Analisti -->
+      <div class="timeline-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Veri Analisti</div>
+            <div class="exp-company">Alternatif Yazılım &amp; Danışmanlık</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <span class="exp-type full">Tam Zamanlı</span>
+            <span class="exp-date">Eki 2022 — Şub 2024</span>
+          </div>
+        </div>
+        <p class="exp-desc">SQL sorgulamaları, test süreçleri, kullanıcı eğitimleri ve iş gereksinim analizlerinde aktif rol aldım. Yazılım geliştirme ve veri analizi süreçlerini yönettim.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">SQL</span>
+          <span class="tech-tag">Veri Analizi</span>
+          <span class="tech-tag">Test</span>
+          <span class="tech-tag">Raporlama</span>
+        </div>
+      </div>
+
+      <!-- Yazılım Uzman Yardımcısı -->
+      <div class="timeline-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Yazılım Geliştirme Uzman Yardımcısı</div>
+            <div class="exp-company">Alternatif Yazılım &amp; Danışmanlık</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <span class="exp-type full">Tam Zamanlı</span>
+            <span class="exp-date">Haz 2022 — Eki 2022</span>
+          </div>
+        </div>
+        <p class="exp-desc">C# programlama dili ile yazılım geliştirme, test ve hata düzeltme faaliyetleri.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">.NET</span>
+          <span class="tech-tag">Yazılım Testi</span>
+        </div>
+      </div>
+
+      <!-- Otomasyon Mühendisi Staj - FEATURED -->
+      <div class="timeline-item featured">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Otomasyon Mühendisi</div>
+            <div class="exp-company">Akım Metal</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <span class="exp-type intern">Staj</span>
+            <span class="exp-date">Haz 2021 — Ağu 2021</span>
+          </div>
+        </div>
+        <p class="exp-desc">PLC programlama ve endüstriyel otomasyon sistemlerinin devreye alınması, test edilmesi ve entegrasyonunda görev aldım.</p>
+        <p class="exp-highlight">★ Bu sahadan gelen PLC ve otomasyon deneyimi gemi kontrol sistemlerine doğrudan transferlenebilir niteliktedir.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">PLC</span>
+          <span class="tech-tag">Otomasyon</span>
+          <span class="tech-tag">Endüstriyel Protokoller</span>
+          <span class="tech-tag">SCADA</span>
+        </div>
+      </div>
+
+      <!-- Ar-Ge -->
+      <div class="timeline-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Ar-Ge Mühendisi</div>
+            <div class="exp-company">Akım Metal</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            <span class="exp-type intern">Staj</span>
+            <span class="exp-date">Haz 2020 — Eyl 2020</span>
+          </div>
+        </div>
+        <p class="exp-desc">Yeni ürün geliştirme ve elektrik panosu iyileştirme projelerinde teknik çizimlerin yorumlanması ve üretim süreçlerine entegrasyonu.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">AutoCAD</span>
+          <span class="tech-tag">Teknik Çizim</span>
+          <span class="tech-tag">Elektrik Pano</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">education.js</span>
+      <h2 class="section-title">Eğitim <span>Hayatım</span></h2>
+      <p class="section-sub">Akademik geçmişim, devam eden eğitimlerim ve sertifikalarım.</p>
+    </div>
+    <div class="edu-grid reveal">
+
+      <!-- Ekol ETO - PRIMARY -->
+      <div class="edu-card primary">
+        <span class="edu-badge badge-active">⚓ Devam Ediyor</span>
+        <div class="edu-title">ETO Sertifika Eğitimi — Gemi Elektro-Teknik Zabiti</div>
+        <div class="edu-org">Ekol Denizcilik Eğitim Merkezi</div>
+        <div class="edu-date">2024 — Devam Ediyor · İstanbul</div>
+        <div class="edu-desc">Gemi elektrik sistemleri, GMDSS haberleşme, motor kontrol devreleri, yüksek gerilim sistemleri ve denizcilik pratikleri. STCW kapsamında temel güvenlik eğitimleri.</div>
+      </div>
+
+      <!-- Marmara EEE -->
+      <div class="edu-card secondary">
+        <span class="edu-badge badge-done">🎓 Mezun</span>
+        <div class="edu-title">Elektrik &amp; Elektronik Mühendisliği (İngilizce)</div>
+        <div class="edu-org">Marmara Üniversitesi</div>
+        <div class="edu-date">2020 — 2024 · İstanbul</div>
+        <div class="edu-desc">Elektrik, elektronik, programlama ve endüstriyel otomasyon alanlarında kapsamlı mühendislik eğitimi.</div>
+      </div>
+
+      <!-- AI Okulu -->
+      <div class="edu-card">
+        <span class="edu-badge badge-active">📊 Devam Ediyor</span>
+        <div class="edu-title">Yapay Zekâ ve Makine Öğrenmesi</div>
+        <div class="edu-org">Marmara Üniversitesi — Veri Analizi Okulu</div>
+        <div class="edu-date">2025 — 2026</div>
+        <div class="edu-desc">Yüksek lisans seviyesinde sertifikalı program. R/Python/SPSS, panel veri analizi, makine öğrenmesi modülleri.</div>
+      </div>
+
+    </div>
+
+    <!-- Sertifikalar -->
+    <div class="reveal" style="margin-top:2rem">
+      <h3 style="font-size:.9rem;color:var(--accent);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.1em">Sertifikalar</h3>
+      <ul class="cert-list">
+        <li>.NET Yazılım Geliştirme Uzmanı — BilgeAdam · 2025</li>
+        <li>Fintek Çırağı Programı — TÖDEB · 2024</li>
+        <li>Programlama Eğitimi — Engin Demiroğ</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">skills.js</span>
+      <h2 class="section-title">Teknoloji <span>Yeteneklerim</span></h2>
+      <p class="section-sub">Gemi sistemlerinde ve yazılım alanında kullandığım teknolojiler.</p>
+    </div>
+    <div class="skills-grid reveal">
+
+      <div class="skill-card highlight">
+        <div class="skill-card-title">⚓ Denizcilik &amp; Gemi Sistemleri</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Gemi Elektrik Sistemleri</span>
+          <span class="skill-tag">GMDSS Temelleri</span>
+          <span class="skill-tag">Motor Kontrol Devreleri</span>
+          <span class="skill-tag">Yüksek Gerilim Sistemleri</span>
+          <span class="skill-tag">STCW Temel Güvenlik</span>
+          <span class="skill-tag">Gemi Otomasyon</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-title">⚙️ Otomasyon &amp; Gemi Kontrol</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PLC</span>
+          <span class="skill-tag">SCADA</span>
+          <span class="skill-tag">End. Protokoller</span>
+          <span class="skill-tag">OSOS Takibi</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-title">💻 Programlama</div>
+        <div class="skill-tags">
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Matlab</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-title">⚡ Elektrik &amp; Saha</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Elektrik Tesisat</span>
+          <span class="skill-tag">Pano Montajı</span>
+          <span class="skill-tag">Aydınlatma</span>
+          <span class="skill-tag">AutoCAD</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-title">📊 Veri &amp; Araçlar</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">MSSQL</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Postman</span>
+          <span class="skill-tag">Jira</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-title">📈 Trading &amp; Finans</div>
+        <div class="skill-tags">
+          <span class="skill-tag">TradingView</span>
+          <span class="skill-tag">Pine Script</span>
+          <span class="skill-tag">Teknik Analiz</span>
+          <span class="skill-tag">İndikatör Geliştirme</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-title">🌍 Diller</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Türkçe (Ana dil)</span>
+          <span class="skill-tag">İngilizce</span>
+          <span class="skill-tag">Almanca</span>
+          <span class="skill-tag">İspanyolca</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">projects.js</span>
+      <h2 class="section-title">Öne Çıkan <span>Projelerim</span></h2>
+      <p class="section-sub">Geliştirdiğim projelerin bir vitrini.</p>
+    </div>
+    <div class="projects-grid reveal">
+
+      <!-- ETO Eğitim Rehberi - FEATURED -->
+      <div class="project-card featured">
+        <div class="project-icon">⚡</div>
+        <div class="project-title">ETO Eğitim Rehberi</div>
+        <div class="project-desc">Gemi elektrik, elektronik ve otomasyon eğitimi için geliştirdiğim interaktif web platformu. 32 bölüm, 399 soru, Gemini AI destekli asistan, sınav simülasyonu, flashcard modu ve PWA desteği.</div>
+        <div class="tech-tags" style="margin-bottom:.9rem">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">CSS</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Gemini AI</span>
+          <span class="tech-tag">PWA</span>
+        </div>
+        <div class="project-links">
+          <a href="https://ebubekirdemirhan.github.io/eto-egitim-rehberi/" target="_blank" class="project-link primary">🌐 Siteyi Gör</a>
+          <a href="https://github.com/ebubekirdemirhan/eto-egitim-rehberi" target="_blank" class="project-link">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Test Otomasyon -->
+      <div class="project-card">
+        <div class="project-icon">🧪</div>
+        <div class="project-title">Test Otomasyon Projesi</div>
+        <div class="project-desc">QTrip web uygulaması için Selenium WebDriver ve NUnit kullanılarak geliştirilmiş test otomasyon framework'ü. POM tasarım deseni, 14 test senaryosu.</div>
+        <div class="tech-tags" style="margin-bottom:.9rem">
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">Selenium</span>
+          <span class="tech-tag">NUnit</span>
+          <span class="tech-tag">POM</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ebubekirdemirhan/Test-Otomasyon-Projesi-2025" target="_blank" class="project-link">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Pastane Analytics -->
+      <div class="project-card">
+        <div class="project-icon">📊</div>
+        <div class="project-title">Pastane Analytics</div>
+        <div class="project-desc">Maltepe Pastanesi için satış analitiği ve ML.NET ile tahminleme sistemi.</div>
+        <div class="tech-tags" style="margin-bottom:.9rem">
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">ML.NET</span>
+          <span class="tech-tag">Veri Analizi</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ebubekirdemirhan/PastaneAnalytics" target="_blank" class="project-link">GitHub</a>
+        </div>
+      </div>
+
+      <!-- EbuIddia -->
+      <div class="project-card">
+        <div class="project-icon">🤖</div>
+        <div class="project-title">EbuIddia Tahmin AI</div>
+        <div class="project-desc">Yapay zeka destekli spor tahmin ve analiz uygulaması.</div>
+        <div class="tech-tags" style="margin-bottom:.9rem">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">AI</span>
+          <span class="tech-tag">Veri Analizi</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ebubekirdemirhan/EbuIddiaTahminAI" target="_blank" class="project-link">GitHub</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:1.5rem">
+      <a href="https://github.com/ebubekirdemirhan" target="_blank" class="btn-secondary">GitHub'da Tüm Projeler →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRADING -->
+<section id="trading">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">trading.pine</span>
+      <h2 class="section-title">TradingView <span>İndikatörlerim</span></h2>
+      <p class="section-sub">5+ yıllık trading deneyimimle Pine Script ile geliştirdiğim algoritmik analiz sistemleri. Freelance olarak aktif geliştirme devam ediyor.</p>
+    </div>
+    <div class="trading-grid reveal">
+
+      <div class="indicator-card">
+        <span class="indicator-badge">🌌 Pine Script · Invite-Only</span>
+        <div class="indicator-name">MAGIC LINES MATRIX PRO [EBU]</div>
+        <div class="indicator-desc">Kurumsal düzey karar destek sistemi. Kalman Filtreleri, CPA Neural Core, Volume Liquidity Zones ve Hidden Algorithms ile yüksek olasılıklı giriş noktaları.</div>
+        <div class="indicator-features">
+          <span class="indicator-feature">Kalman Filtre</span>
+          <span class="indicator-feature">CPA Skor (0-8)</span>
+          <span class="indicator-feature">Multi-Coin Tarayıcı</span>
+          <span class="indicator-feature">Akıllı TP/SL</span>
+          <span class="indicator-feature">MTF Dashboard</span>
+        </div>
+      </div>
+
+      <div class="indicator-card">
+        <span class="indicator-badge">🎯 Pine Script · Invite-Only</span>
+        <div class="indicator-name">SNIPER DEDE SYSTEM [EBU]</div>
+        <div class="indicator-desc">Price Action odaklı hassas trading sistemi. Smart Money Concepts (SMC), FTR Zone, Order Block ve Volume Profile ile kurumsal ayak izlerini takip eder.</div>
+        <div class="indicator-features">
+          <span class="indicator-feature">SMC (BOS/CHoCH)</span>
+          <span class="indicator-feature">Order Blocks</span>
+          <span class="indicator-feature">FTR Zones</span>
+          <span class="indicator-feature">40 Coin Tarayıcı</span>
+        </div>
+      </div>
+
+      <div class="indicator-card">
+        <span class="indicator-badge">🎯 Pine Script · Invite-Only</span>
+        <div class="indicator-name">Multi-Trend [EBU]</div>
+        <div class="indicator-desc">Çoklu algoritma trend analiz sistemi. T3, EMA, HMA ve ZLEMA algoritmalarını tek bir matriste birleştirir.</div>
+        <div class="indicator-features">
+          <span class="indicator-feature">4 Trend Algoritması</span>
+          <span class="indicator-feature">Bias Algılama</span>
+          <span class="indicator-feature">EMA Cloud</span>
+          <span class="indicator-feature">6 Preset Mod</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:1.5rem">
+      <a href="https://tr.tradingview.com/u/ebubekirdemirhan/" target="_blank" class="btn-secondary">TradingView'da Gör →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">contact.js</span>
+      <h2 class="section-title">Hadi <span>Konuşalım</span></h2>
+      <p class="section-sub">Gemi şirketleri ve yeni fırsatlar için açığım.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="contact-desc">
+          Gemi elektrik ve otomasyon sistemleri konusunda deneyimli, yazılım altyapısıyla güçlendirilmiş bir ETO adayıyım. Ekol Denizcilik'teki eğitimimi tamamlayıp gerçek bir zabit olarak denize açılmak istiyorum.
+        </p>
+        <div class="contact-open">
+          <p><strong>ETO Pozisyonuna Açığım:</strong> Gemi şirketleri ile staj ve zabit pozisyonları için görüşmeye hazırım.</p>
+          <p style="margin-top:.5rem"><strong>Freelance Açık Kapı:</strong> Yazılım geliştirme ve TradingView indikatör projeleri için de müsaitim.</p>
+        </div>
+      </div>
+      <div class="contact-links reveal">
+        <a href="mailto:ebubekirdemirhaniletisim@gmail.com" class="contact-link-item">
+          <div class="contact-link-icon">✉️</div>
+          <div class="contact-link-info">
+            <div class="contact-link-name">E-posta</div>
+            <div class="contact-link-val">ebubekirdemirhaniletisim@gmail.com</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ebubekirdemirhan/" target="_blank" class="contact-link-item">
+          <div class="contact-link-icon">in</div>
+          <div class="contact-link-info">
+            <div class="contact-link-name">LinkedIn</div>
+            <div class="contact-link-val">Profesyonel ağım</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="https://github.com/ebubekirdemirhan" target="_blank" class="contact-link-item">
+          <div class="contact-link-icon">gh</div>
+          <div class="contact-link-info">
+            <div class="contact-link-name">GitHub</div>
+            <div class="contact-link-val">Kod depom</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+        <a href="https://tr.tradingview.com/u/ebubekirdemirhan/" target="_blank" class="contact-link-item">
+          <div class="contact-link-icon">📈</div>
+          <div class="contact-link-info">
+            <div class="contact-link-name">TradingView</div>
+            <div class="contact-link-val">İndikatörlerim</div>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p style="color:var(--muted)">© 2026 Ebubekir Demirhan · ETO Adayı &amp; Elektrik-Elektronik Mühendisi</p>
+  </div>
+</footer>
+
+<button id="back-top" aria-label="Yukarı dön" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Back to top
+  window.addEventListener('scroll', () => {
+    document.getElementById('back-top').classList.toggle('visible', window.scrollY > 400);
+  }, {passive:true});
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
 </html>
