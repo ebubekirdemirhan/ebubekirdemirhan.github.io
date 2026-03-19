@@ -463,27 +463,50 @@
        SKILLS
     ══════════════════════════════════════════ */
     #skills { }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.1rem; }
-    .skill-card {
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 1023px) { .skills-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 540px)  { .skills-grid { grid-template-columns: 1fr; } }
+
+    .skill-cat {
       background: rgba(14,12,28,.8); backdrop-filter: blur(16px);
-      border: 1px solid rgba(124,58,237,.15); border-radius: 1rem;
-      padding: 1.15rem 1.25rem; transition: all .3s;
+      border: 1px solid rgba(124,58,237,.15);
+      border-top-width: 2px;
+      border-radius: 1rem; overflow: hidden;
+      transition: all .3s;
     }
-    .skill-card:hover { border-color: rgba(124,58,237,.35); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(124,58,237,.08); }
-    .skill-card.highlight { border-color: rgba(74,222,128,.25); background: rgba(74,222,128,.02); }
-    .skill-card-title {
-      font-size: .8rem; font-weight: 700; color: #a78bfa;
-      text-transform: uppercase; letter-spacing: .07em;
-      display: flex; align-items: center; gap: .4rem;
-      margin-bottom: .85rem;
+    .skill-cat:hover { box-shadow: 0 0 30px rgba(124,58,237,.1); }
+    .skill-cat-head {
+      padding: 1rem 1.1rem .75rem;
+      display: flex; align-items: center; gap: .65rem;
+      border-bottom: 1px solid rgba(255,255,255,.05);
     }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .skill-tag {
-      font-size: .74rem; padding: .24rem .6rem; border-radius: .4rem;
-      background: rgba(124,58,237,.08); border: 1px solid rgba(124,58,237,.15);
-      color: #c4b5fd; transition: all .15s;
+    .skill-cat-icon {
+      width: 30px; height: 30px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; flex-shrink: 0;
+      transition: transform .55s cubic-bezier(.4,0,.2,1);
     }
-    .skill-tag:hover { background: rgba(124,58,237,.18); }
+    .skill-cat:hover .skill-cat-icon { transform: rotateY(360deg); }
+    .skill-cat-head h3 { font-size: .95rem; font-weight: 700; color: #f3f4f6; }
+    .skill-tiles {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: .5rem; padding: .85rem;
+    }
+    @media (max-width: 360px) { .skill-tiles { grid-template-columns: repeat(2,1fr); } }
+    .skill-tile {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: .4rem; padding: .75rem .4rem; border-radius: .65rem;
+      background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.06);
+      min-height: 76px; cursor: default; transition: all .25s;
+    }
+    .skill-tile:hover { background: rgba(255,255,255,.07); transform: translateY(-2px); }
+    .skill-tile-icon { font-size: 1.4rem; line-height: 1; display: flex; align-items: center; justify-content: center; }
+    .skill-tile-icon img { width: 26px; height: 26px; object-fit: contain; }
+    .skill-tile-name { font-size: .68rem; color: #d1d5db; font-weight: 500; text-align: center; line-height: 1.2; }
 
     /* ══════════════════════════════════════════
        PROJECTS
@@ -1100,79 +1123,178 @@
       <div class="title-bar"></div>
       <p>Gemi sistemlerinde ve yazılım alanında kullandığım teknolojiler.</p>
     </div>
-    <div class="skills-grid reveal">
+    <div class="skills-grid">
 
-      <div class="skill-card highlight">
-        <div class="skill-card-title">⚓ Denizcilik &amp; Gemi Sistemleri</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Gemi Elektrik Sistemleri</span>
-          <span class="skill-tag">GMDSS Temelleri</span>
-          <span class="skill-tag">Motor Kontrol Devreleri</span>
-          <span class="skill-tag">Yüksek Gerilim</span>
-          <span class="skill-tag">STCW Temel Güvenlik</span>
-          <span class="skill-tag">Gemi Otomasyon</span>
+      <!-- Denizcilik -->
+      <div class="skill-cat reveal" style="border-top-color:#06b6d4">
+        <div class="skill-cat-head">
+          <div class="skill-cat-icon" style="background:rgba(6,182,212,.15);color:#06b6d4">⚓</div>
+          <h3>Denizcilik &amp; Gemi Sistemleri</h3>
+        </div>
+        <div class="skill-tiles">
+          <div class="skill-tile" style="--c:#06b6d4" onmouseenter="this.style.borderColor='rgba(6,182,212,.35)';this.style.boxShadow='0 4px 20px rgba(6,182,212,.12)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon">⚡</div><div class="skill-tile-name">Gemi Elektrik</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(6,182,212,.35)';this.style.boxShadow='0 4px 20px rgba(6,182,212,.12)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon">📡</div><div class="skill-tile-name">GMDSS</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(6,182,212,.35)';this.style.boxShadow='0 4px 20px rgba(6,182,212,.12)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon">⚙️</div><div class="skill-tile-name">Motor Kontrol</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(6,182,212,.35)';this.style.boxShadow='0 4px 20px rgba(6,182,212,.12)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon">🔆</div><div class="skill-tile-name">Yüksek Gerilim</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(6,182,212,.35)';this.style.boxShadow='0 4px 20px rgba(6,182,212,.12)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon">🛡️</div><div class="skill-tile-name">STCW</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(6,182,212,.35)';this.style.boxShadow='0 4px 20px rgba(6,182,212,.12)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon">🤖</div><div class="skill-tile-name">Gemi Otomasyonu</div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-card-title">⚙️ Otomasyon &amp; Gemi Kontrol</div>
-        <div class="skill-tags">
-          <span class="skill-tag">PLC</span>
-          <span class="skill-tag">SCADA</span>
-          <span class="skill-tag">End. Protokoller</span>
-          <span class="skill-tag">OSOS Takibi</span>
+      <!-- Programlama -->
+      <div class="skill-cat reveal" style="border-top-color:#8b5cf6">
+        <div class="skill-cat-head">
+          <div class="skill-cat-icon" style="background:rgba(139,92,246,.15);color:#8b5cf6">💻</div>
+          <h3>Programlama</h3>
+        </div>
+        <div class="skill-tiles">
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(139,92,246,.4)';this.style.boxShadow='0 4px 20px rgba(81,43,212,.15)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/csharp/csharp-original.svg" alt="C#"></div>
+            <div class="skill-tile-name">C#</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(55,118,171,.4)';this.style.boxShadow='0 4px 20px rgba(55,118,171,.15)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/python/python-original.svg" alt="Python"></div>
+            <div class="skill-tile-name">Python</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(204,41,39,.4)';this.style.boxShadow='0 4px 20px rgba(204,41,39,.15)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon">🗄️</div>
+            <div class="skill-tile-name">SQL</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(237,139,0,.4)';this.style.boxShadow='0 4px 20px rgba(237,139,0,.15)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/java/java-original.svg" alt="Java"></div>
+            <div class="skill-tile-name">Java</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(0,118,168,.4)';this.style.boxShadow='0 4px 20px rgba(0,118,168,.15)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/matlab/matlab-original.svg" alt="Matlab"></div>
+            <div class="skill-tile-name">Matlab</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(139,92,246,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">📝</div>
+            <div class="skill-tile-name">HTML/CSS</div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-card-title">💻 Programlama</div>
-        <div class="skill-tags">
-          <span class="skill-tag">C#</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">Java</span>
-          <span class="skill-tag">Matlab</span>
+      <!-- Otomasyon -->
+      <div class="skill-cat reveal" style="border-top-color:#ec4899">
+        <div class="skill-cat-head">
+          <div class="skill-cat-icon" style="background:rgba(236,72,153,.15);color:#ec4899">⚙️</div>
+          <h3>Otomasyon &amp; Gemi Kontrol</h3>
+        </div>
+        <div class="skill-tiles">
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(16,185,129,.4)';this.style.boxShadow='0 4px 20px rgba(16,185,129,.12)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon">🔧</div><div class="skill-tile-name">PLC</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(236,72,153,.4)';this.style.boxShadow='0 4px 20px rgba(236,72,153,.12)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon">🖥️</div><div class="skill-tile-name">SCADA</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(139,92,246,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">🔗</div><div class="skill-tile-name">End. Protokoller</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(59,130,246,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">📊</div><div class="skill-tile-name">OSOS Takibi</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(245,158,11,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">⚡</div><div class="skill-tile-name">Elektrik Tesisat</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(245,158,11,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">🗂️</div><div class="skill-tile-name">Pano Montajı</div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-card-title">⚡ Elektrik &amp; Saha</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Elektrik Tesisat</span>
-          <span class="skill-tag">Pano Montajı</span>
-          <span class="skill-tag">Aydınlatma</span>
-          <span class="skill-tag">AutoCAD</span>
+      <!-- Araçlar -->
+      <div class="skill-cat reveal" style="border-top-color:#3b82f6">
+        <div class="skill-cat-head">
+          <div class="skill-cat-icon" style="background:rgba(59,130,246,.15);color:#3b82f6">🛠️</div>
+          <h3>Araçlar &amp; Veri</h3>
+        </div>
+        <div class="skill-tiles">
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(242,200,17,.4)';this.style.boxShadow='0 4px 20px rgba(242,200,17,.12)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon">📊</div><div class="skill-tile-name">Power BI</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(204,41,39,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="MSSQL"></div>
+            <div class="skill-tile-name">MSSQL</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(242,78,30,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/figma/figma-original.svg" alt="Figma"></div>
+            <div class="skill-tile-name">Figma</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(255,108,55,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/postman/postman-plain.svg" alt="Postman"></div>
+            <div class="skill-tile-name">Postman</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(38,132,255,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/jira/jira-original.svg" alt="Jira"></div>
+            <div class="skill-tile-name">Jira</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(6,118,210,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">📐</div>
+            <div class="skill-tile-name">AutoCAD</div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-card-title">📊 Veri &amp; Araçlar</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Power BI</span>
-          <span class="skill-tag">MSSQL</span>
-          <span class="skill-tag">Figma</span>
-          <span class="skill-tag">Postman</span>
-          <span class="skill-tag">Jira</span>
+      <!-- Trading -->
+      <div class="skill-cat reveal" style="border-top-color:#f97316">
+        <div class="skill-cat-head">
+          <div class="skill-cat-icon" style="background:rgba(249,115,22,.15);color:#f97316">📈</div>
+          <h3>Trading &amp; Finans</h3>
+        </div>
+        <div class="skill-tiles">
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(41,98,255,.4)';this.style.boxShadow='0 4px 20px rgba(41,98,255,.15)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)';this.style.boxShadow='none'">
+            <div class="skill-tile-icon">📈</div><div class="skill-tile-name">TradingView</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(76,175,80,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">🌲</div><div class="skill-tile-name">Pine Script</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(249,115,22,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">📉</div><div class="skill-tile-name">Teknik Analiz</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(236,72,153,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">🔢</div><div class="skill-tile-name">İndikatör Geliştirme</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(234,179,8,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">🎯</div><div class="skill-tile-name">Strateji</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(249,115,22,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">💹</div><div class="skill-tile-name">5+ Yıl Trader</div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-card-title">📈 Trading &amp; Finans</div>
-        <div class="skill-tags">
-          <span class="skill-tag">TradingView</span>
-          <span class="skill-tag">Pine Script</span>
-          <span class="skill-tag">Teknik Analiz</span>
-          <span class="skill-tag">İndikatör Geliştirme</span>
+      <!-- Diller -->
+      <div class="skill-cat reveal" style="border-top-color:#6366f1">
+        <div class="skill-cat-head">
+          <div class="skill-cat-icon" style="background:rgba(99,102,241,.15);color:#6366f1">🌍</div>
+          <h3>Diller</h3>
         </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-card-title">🌍 Diller</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Türkçe (Ana dil)</span>
-          <span class="skill-tag">İngilizce</span>
-          <span class="skill-tag">Almanca</span>
-          <span class="skill-tag">İspanyolca</span>
+        <div class="skill-tiles">
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(239,68,68,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">🇹🇷</div><div class="skill-tile-name">Türkçe</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(59,130,246,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">🇬🇧</div><div class="skill-tile-name">İngilizce</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(234,179,8,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">🇩🇪</div><div class="skill-tile-name">Almanca</div>
+          </div>
+          <div class="skill-tile" onmouseenter="this.style.borderColor='rgba(249,115,22,.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,.06)'">
+            <div class="skill-tile-icon">🇪🇸</div><div class="skill-tile-name">İspanyolca</div>
+          </div>
         </div>
       </div>
 
