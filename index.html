@@ -541,27 +541,54 @@
        TRADING
     ══════════════════════════════════════════ */
     #trading { }
-    .trading-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.1rem; }
+    .trading-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem; }
     .indicator-card {
       background: rgba(14,12,28,.8); backdrop-filter: blur(16px);
-      border: 1px solid rgba(124,58,237,.15); border-radius: 1rem;
-      padding: 1.25rem; transition: all .3s;
-    }
-    .indicator-card:hover { border-color: rgba(124,58,237,.35); transform: translateY(-3px); }
-    .indicator-badge {
-      display: inline-flex; align-items: center; gap: .4rem;
-      font-size: .7rem; padding: .22rem .7rem; border-radius: 9999px;
-      background: rgba(250,204,21,.1); color: #facc15;
-      border: 1px solid rgba(250,204,21,.25); font-weight: 700; margin-bottom: .75rem;
-    }
-    .indicator-name { font-size: .93rem; font-weight: 700; color: #f3f4f6; margin-bottom: .4rem; }
-    .indicator-desc { font-size: .82rem; color: #9ca3af; line-height: 1.6; margin-bottom: .7rem; }
-    .indicator-features { display: flex; flex-wrap: wrap; gap: .35rem; }
-    .indicator-feature {
-      font-size: .7rem; padding: .18rem .55rem; border-radius: .35rem;
-      background: rgba(124,58,237,.08); color: #c4b5fd;
       border: 1px solid rgba(124,58,237,.15);
+      border-top-width: 3px;
+      border-radius: 1rem; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: all .3s;
     }
+    .indicator-card:hover { transform: translateY(-4px); }
+    .ind-body { padding: 1.25rem 1.4rem 0; flex: 1; }
+    .ind-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: .85rem; }
+    .ind-header-left { display: flex; align-items: center; gap: .6rem; }
+    .ind-emoji { font-size: 1.4rem; transition: transform .55s cubic-bezier(.4,0,.2,1); }
+    .indicator-card:hover .ind-emoji { transform: rotateY(360deg); }
+    .ind-pine-badge {
+      font-size: .62rem; font-weight: 700;
+      padding: .18rem .6rem; border-radius: 9999px;
+      text-transform: uppercase; letter-spacing: .05em;
+    }
+    .ind-invite-badge {
+      font-size: .62rem; font-weight: 600;
+      padding: .18rem .6rem; border-radius: 9999px;
+      background: rgba(255,255,255,.05); color: #6b7280;
+    }
+    .indicator-name { font-size: 1rem; font-weight: 700; color: #f3f4f6; margin-bottom: .6rem; line-height: 1.3; }
+    .indicator-desc { font-size: .82rem; color: #9ca3af; line-height: 1.7; margin-bottom: 1rem; }
+    .ind-features-label {
+      font-size: .76rem; font-weight: 600; color: #d1d5db;
+      display: flex; align-items: center; gap: .4rem; margin-bottom: .55rem;
+    }
+    .indicator-features { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+    .indicator-feature {
+      font-size: .7rem; padding: .2rem .65rem; border-radius: 9999px;
+      font-weight: 500; color: #d1d5db;
+    }
+    .ind-footer {
+      padding: .85rem 1.4rem;
+      border-top: 1px solid rgba(255,255,255,.05);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .ind-markets { display: flex; gap: .4rem; }
+    .ind-market {
+      font-size: .63rem; padding: .18rem .55rem; border-radius: 9999px;
+      background: rgba(255,255,255,.05); color: #6b7280; font-weight: 500;
+    }
+    .ind-author { font-size: .7rem; color: #6b7280; }
+    .ind-author strong { color: #d1d5db; font-weight: 600; }
 
     /* ══════════════════════════════════════════
        CONTACT
@@ -1313,46 +1340,125 @@
     </div>
     <div class="trading-grid">
 
-      <div class="indicator-card reveal">
-        <span class="indicator-badge">🌌 Pine Script · Invite-Only</span>
-        <div class="indicator-name">MAGIC LINES MATRIX PRO [EBU]</div>
-        <div class="indicator-desc">Kurumsal düzey karar destek sistemi. Kalman Filtreleri, CPA Neural Core, Volume Liquidity Zones ve Hidden Algorithms ile yüksek olasılıklı giriş noktaları.</div>
-        <div class="indicator-features">
-          <span class="indicator-feature">Kalman Filtre</span>
-          <span class="indicator-feature">CPA Skor (0-8)</span>
-          <span class="indicator-feature">Multi-Coin Tarayıcı</span>
-          <span class="indicator-feature">Akıllı TP/SL</span>
-          <span class="indicator-feature">MTF Dashboard</span>
+      <!-- MAGIC LINES — accent #a855f7 -->
+      <div class="indicator-card reveal"
+        style="border-top-color:#a855f7"
+        onmouseenter="this.style.borderColor='rgba(168,85,247,.4)';this.style.boxShadow='0 0 30px rgba(168,85,247,.12)'"
+        onmouseleave="this.style.borderColor='rgba(124,58,237,.15)';this.style.boxShadow='none'">
+        <div class="ind-body">
+          <div class="ind-header">
+            <div class="ind-header-left">
+              <span class="ind-emoji">🌌</span>
+              <span class="ind-pine-badge" style="background:rgba(168,85,247,.15);color:#a855f7;border:1px solid rgba(168,85,247,.3)">Pine Script</span>
+            </div>
+            <span class="ind-invite-badge">Invite-Only</span>
+          </div>
+          <div class="indicator-name">MAGIC LINES MATRIX PRO [EBU]</div>
+          <div class="indicator-desc">Kurumsal düzey karar destek sistemi. Kalman Filtreleri, CPA Neural Core, Volume Liquidity Zones ve Hidden Algorithms ile yüksek olasılıklı giriş noktaları tespit eder.</div>
+          <div class="ind-features-label">🚀 Özellikler</div>
+          <div class="indicator-features">
+            <span class="indicator-feature" style="background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25)">Kalman Filtre</span>
+            <span class="indicator-feature" style="background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25)">CPA Skor (0-8)</span>
+            <span class="indicator-feature" style="background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25)">Multi-Coin Tarayıcı</span>
+            <span class="indicator-feature" style="background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25)">Akıllı TP/SL</span>
+            <span class="indicator-feature" style="background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25)">MTF Dashboard</span>
+          </div>
+        </div>
+        <div class="ind-footer">
+          <div class="ind-markets">
+            <span class="ind-market">Kripto</span>
+            <span class="ind-market">Forex</span>
+            <span class="ind-market">Endeksler</span>
+          </div>
+          <span class="ind-author">by <strong>ebubekirdemirhan</strong></span>
         </div>
       </div>
 
-      <div class="indicator-card reveal">
-        <span class="indicator-badge">🎯 Pine Script · Invite-Only</span>
-        <div class="indicator-name">SNIPER DEDE SYSTEM [EBU]</div>
-        <div class="indicator-desc">Price Action odaklı hassas trading sistemi. Smart Money Concepts (SMC), FTR Zone, Order Block ve Volume Profile ile kurumsal ayak izlerini takip eder.</div>
-        <div class="indicator-features">
-          <span class="indicator-feature">SMC (BOS/CHoCH)</span>
-          <span class="indicator-feature">Order Blocks</span>
-          <span class="indicator-feature">FTR Zones</span>
-          <span class="indicator-feature">40 Coin Tarayıcı</span>
+      <!-- SNIPER DEDE — accent #10b981 -->
+      <div class="indicator-card reveal"
+        style="border-top-color:#10b981"
+        onmouseenter="this.style.borderColor='rgba(16,185,129,.4)';this.style.boxShadow='0 0 30px rgba(16,185,129,.12)'"
+        onmouseleave="this.style.borderColor='rgba(124,58,237,.15)';this.style.boxShadow='none'">
+        <div class="ind-body">
+          <div class="ind-header">
+            <div class="ind-header-left">
+              <span class="ind-emoji">🎯</span>
+              <span class="ind-pine-badge" style="background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.3)">Pine Script</span>
+            </div>
+            <span class="ind-invite-badge">Invite-Only</span>
+          </div>
+          <div class="indicator-name">SNIPER DEDE SYSTEM [EBU]</div>
+          <div class="indicator-desc">Price Action odaklı hassas trading sistemi. Smart Money Concepts (SMC), FTR Zone, Order Block ve Volume Profile ile kurumsal ayak izlerini takip eder.</div>
+          <div class="ind-features-label">🚀 Özellikler</div>
+          <div class="indicator-features">
+            <span class="indicator-feature" style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25)">SMC (BOS/CHoCH)</span>
+            <span class="indicator-feature" style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25)">Order Blocks</span>
+            <span class="indicator-feature" style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25)">FTR Zones</span>
+            <span class="indicator-feature" style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25)">40 Coin Tarayıcı</span>
+            <span class="indicator-feature" style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25)">ATR Risk Yönetimi</span>
+          </div>
+        </div>
+        <div class="ind-footer">
+          <div class="ind-markets">
+            <span class="ind-market">Kripto</span>
+            <span class="ind-market">Forex</span>
+          </div>
+          <span class="ind-author">by <strong>ebubekirdemirhan</strong></span>
         </div>
       </div>
 
-      <div class="indicator-card reveal">
-        <span class="indicator-badge">🎯 Pine Script · Invite-Only</span>
-        <div class="indicator-name">Multi-Trend [EBU]</div>
-        <div class="indicator-desc">Çoklu algoritma trend analiz sistemi. T3, EMA, HMA ve ZLEMA algoritmalarını tek bir matriste birleştirir.</div>
-        <div class="indicator-features">
-          <span class="indicator-feature">4 Trend Algoritması</span>
-          <span class="indicator-feature">Bias Algılama</span>
-          <span class="indicator-feature">EMA Cloud</span>
-          <span class="indicator-feature">6 Preset Mod</span>
+      <!-- Multi-Trend — accent #3b82f6 -->
+      <div class="indicator-card reveal"
+        style="border-top-color:#3b82f6"
+        onmouseenter="this.style.borderColor='rgba(59,130,246,.4)';this.style.boxShadow='0 0 30px rgba(59,130,246,.12)'"
+        onmouseleave="this.style.borderColor='rgba(124,58,237,.15)';this.style.boxShadow='none'">
+        <div class="ind-body">
+          <div class="ind-header">
+            <div class="ind-header-left">
+              <span class="ind-emoji">🎯</span>
+              <span class="ind-pine-badge" style="background:rgba(59,130,246,.15);color:#3b82f6;border:1px solid rgba(59,130,246,.3)">Pine Script</span>
+            </div>
+            <span class="ind-invite-badge">Invite-Only</span>
+          </div>
+          <div class="indicator-name">Multi-Trend [EBU]</div>
+          <div class="indicator-desc">Çoklu algoritma trend analiz sistemi. T3, EMA, HMA ve ZLEMA algoritmalarını tek bir matriste birleştirerek gerçek trend yönünü ortaya koyar.</div>
+          <div class="ind-features-label">🚀 Özellikler</div>
+          <div class="indicator-features">
+            <span class="indicator-feature" style="background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25)">4 Trend Algoritması</span>
+            <span class="indicator-feature" style="background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25)">Bias Algılama</span>
+            <span class="indicator-feature" style="background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25)">EMA Cloud</span>
+            <span class="indicator-feature" style="background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25)">RSI 11 EMA</span>
+            <span class="indicator-feature" style="background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25)">6 Preset Mod</span>
+          </div>
+        </div>
+        <div class="ind-footer">
+          <div class="ind-markets">
+            <span class="ind-market">Kripto</span>
+            <span class="ind-market">Forex</span>
+            <span class="ind-market">Hisse</span>
+          </div>
+          <span class="ind-author">by <strong>ebubekirdemirhan</strong></span>
         </div>
       </div>
 
     </div>
-    <div class="reveal" style="text-align:center;margin-top:2rem">
-      <a href="https://tr.tradingview.com/u/ebubekirdemirhan/" target="_blank" class="btn-out">TradingView'da Gör →</a>
+
+    <!-- Profile CTA -->
+    <div class="reveal" style="margin-top:2rem">
+      <div class="glass" style="padding:1.75rem;text-align:center;position:relative;overflow:hidden">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(41,98,255,.05),rgba(168,85,247,.05));pointer-events:none"></div>
+        <div style="position:relative;z-index:1">
+          <div style="font-size:1.5rem;margin-bottom:.6rem">📊</div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:.6rem">TradingView Profili</h3>
+          <p style="color:#9ca3af;font-size:.88rem;max-width:440px;margin:0 auto 1.25rem;line-height:1.7">
+            Tüm indikatörlerimi ve geliştirme çalışmalarımı TradingView profilimde inceleyebilirsiniz.
+          </p>
+          <a href="https://tr.tradingview.com/u/ebubekirdemirhan/" target="_blank"
+            class="btn-grad" style="background:linear-gradient(135deg,#2962FF,#1E88E5,#7c3aed)">
+            📈 TradingView'da Gör →
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
