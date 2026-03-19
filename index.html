@@ -293,8 +293,7 @@
     }
     .cwb-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
     .cwb-fn { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: #6b7280; margin-left: .5rem; }
-    .code-body { padding: 1.2rem 1.4rem; font-family: 'JetBrains Mono', monospace; font-size: clamp(.7rem, 2vw, .83rem); line-height: 1.85; overflow-x: auto; white-space: nowrap; }
-    .code-body div { display: block; }
+    .code-body { padding: 1.2rem 1.4rem; font-family: 'JetBrains Mono', monospace; font-size: clamp(.7rem, 2vw, .83rem); line-height: 1.85; overflow-x: auto; white-space: pre; margin: 0; }
     .code-body .ck  { color: #c792ea; }
     .code-body .cv  { color: #82aaff; }
     .code-body .cs  { color: #c3e88d; }
@@ -825,17 +824,15 @@
           <span class="cwb-dot" style="background:#22c55e"></span>
           <span class="cwb-fn">eto-officer.js</span>
         </div>
-        <div class="code-body">
-          <div><span class="ck">const</span> <span class="cv">ebubekir</span> <span class="cp">= {</span></div>
-          <div>&nbsp;&nbsp;<span class="cky">ad</span><span class="cp">:</span>      <span class="cs">'Ebubekir Demirhan'</span><span class="cp">,</span></div>
-          <div>&nbsp;&nbsp;<span class="cky">rol</span><span class="cp">:</span>     <span class="cs">'ETO Adayı | Gemi Elektro-Teknik Zabiti'</span><span class="cp">,</span></div>
-          <div>&nbsp;&nbsp;<span class="cky">egitim</span><span class="cp">:</span>  <span class="cs">'Ekol Denizcilik — ETO Sertifika Programı'</span><span class="cp">,</span></div>
-          <div>&nbsp;&nbsp;<span class="cky">altyapi</span><span class="cp">: [</span><span class="cs">'E&amp;E Müh.'</span><span class="cp">,</span> <span class="cs">'PLC &amp; Otomasyon'</span><span class="cp">,</span> <span class="cs">'Yazılım'</span><span class="cp">],</span></div>
-          <div>&nbsp;&nbsp;<span class="cky">hedef</span><span class="cp">:</span>   <span class="cs">'Gemi elektrik &amp; otomasyon yönetimi'</span><span class="cp">,</span></div>
-          <div><span class="cp">};</span></div>
-          <div><span class="cc">// Freelance: Yazılım &amp; TradingView indikatör</span></div>
-          <div><span class="ck">export default</span> <span class="cv">ebubekir</span><span class="cp">;</span></div>
-        </div>
+        <pre class="code-body"><span class="ck">const</span> <span class="cv">ebubekir</span> <span class="cp">= {</span>
+  <span class="cky">ad</span><span class="cp">:</span>      <span class="cs">'Ebubekir Demirhan'</span><span class="cp">,</span>
+  <span class="cky">rol</span><span class="cp">:</span>     <span class="cs">'ETO Adayı | Gemi Elektro-Teknik Zabiti'</span><span class="cp">,</span>
+  <span class="cky">egitim</span><span class="cp">:</span>  <span class="cs">'Ekol Denizcilik — ETO Sertifika Programı'</span><span class="cp">,</span>
+  <span class="cky">altyapi</span><span class="cp">: [</span><span class="cs">'E&amp;E Müh.'</span><span class="cp">,</span> <span class="cs">'PLC &amp; Otomasyon'</span><span class="cp">,</span> <span class="cs">'Yazılım'</span><span class="cp">],</span>
+  <span class="cky">hedef</span><span class="cp">:</span>   <span class="cs">'Gemi elektrik &amp; otomasyon yönetimi'</span><span class="cp">,</span>
+<span class="cp">};</span>
+<span class="cc">// Freelance: Yazılım &amp; TradingView indikatör</span>
+<span class="ck">export default</span> <span class="cv">ebubekir</span><span class="cp">;</span></pre>
         <div class="cwb-rainbow"></div>
       </div>
 
@@ -899,15 +896,13 @@
             <span class="cwb-dot" style="background:#22c55e"></span>
             <span class="cwb-fn">passions.js</span>
           </div>
-          <div class="code-body">
-            <div><span class="ck">const</span> <span class="cv">passions</span> <span class="cp">= [</span></div>
-            <div>&nbsp;&nbsp;<span class="cs">'Gemi elektrik &amp; otomasyon sistemleri'</span><span class="cp">,</span></div>
-            <div>&nbsp;&nbsp;<span class="cs">'PLC ve endüstriyel kontrol'</span><span class="cp">,</span></div>
-            <div>&nbsp;&nbsp;<span class="cs">'GMDSS haberleşme sistemleri'</span><span class="cp">,</span></div>
-            <div>&nbsp;&nbsp;<span class="cs">'Yüksek gerilim sistemleri'</span><span class="cp">,</span></div>
-            <div>&nbsp;&nbsp;<span class="cs">'Freelance yazılım &amp; indikatör'</span><span class="cp">,</span></div>
-            <div><span class="cp">];</span></div>
-          </div>
+          <pre class="code-body"><span class="ck">const</span> <span class="cv">passions</span> <span class="cp">= [</span>
+  <span class="cs">'Gemi elektrik &amp; otomasyon sistemleri'</span><span class="cp">,</span>
+  <span class="cs">'PLC ve endüstriyel kontrol'</span><span class="cp">,</span>
+  <span class="cs">'GMDSS haberleşme sistemleri'</span><span class="cp">,</span>
+  <span class="cs">'Yüksek gerilim sistemleri'</span><span class="cp">,</span>
+  <span class="cs">'Freelance yazılım &amp; indikatör'</span><span class="cp">,</span>
+<span class="cp">];</span></pre>
           <div class="cwb-rainbow"></div>
         </div>
         <div class="features-grid">
